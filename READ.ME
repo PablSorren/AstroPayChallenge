@@ -1,17 +1,29 @@
 Bienvenidos!
 
-1° Ejecutar el comando mvn spring-boot:run o darle RUN a la clase AstroPayApplication.java
+1° Ejecutar el comando "mvn spring-boot:run" o darle RUN a la clase AstroPayApplication.java
 
 2° Ingresar en la URL la ubicacion  'localhost/8080' seguido de uno de los siguientes :
 
+
     '/posts' -> para ver todos los posts.
+     Ej.: http://localhost:8080/posts
+
+    'posts?pageNumber=X&pageSize=Y' -> para ver los posts de forma paginada (nota el pageNumber inicial = 0)
+     ej.: http://localhost:8080/posts?pageNumber=0&pageSize=3
+
 
     '/posts/<id de post>' -> para ver un post con el ID especificado.
+    ej.: http://localhost:8080/posts/100
+
 
     '/posts/title?word=<palabra>' -> para filtrar los posts cuyo titulo contengan la 'palabra' buscada.
+    ej.: http://localhost:8080/posts/title?word=iusto
+
 
     '/comments' -> para ver todos los comentarios.
+    ej.: http://localhost:8080/comments
+
 
     '/comments/<post id>' -> para ver todos los comentarios asociados al Post con el ID especificado.
-
+     ej.: http://localhost:8080/comments/9
 

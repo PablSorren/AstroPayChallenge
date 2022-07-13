@@ -13,24 +13,29 @@ public class PostController {
   @Autowired
   private PostService postService;
 
-  @GetMapping(value="")
-  public List<Post> getPosts() {
-    return postService.getPosts();
-  }
-
   @GetMapping(value="/{postId}")
   public Post getUserById(@PathVariable("postId") Long id) {
     return postService.getPostById(id);
   }
 
-  @GetMapping(value="/title")
-  public List<Post> defaultTitleAnswer() {
-    return this.getPosts();
-  }
+//  @GetMapping(value="/title")
+//  public List<Post> defaultTitleAnswer() {
+//    return this.getPosts();
+//  }
 
   @GetMapping(value="/title", params = "word")
   public List<Post> getPostsWithWordInTitle(@RequestParam String word) {
     return postService.getPostsWithWordInTitle(word);
+  }
+
+  @GetMapping(value = "", params = {"pageNumber", "pageSize"})
+  public List<Post> getPaginatedPosts(int pageNumber, int pageSize) {
+    return postService.getPaginatedPosts(pageNumber, pageSize);
+  }
+
+  @GetMapping(value="")
+  public List<Post> getPosts() {
+    return postService.getPosts();
   }
 
 }

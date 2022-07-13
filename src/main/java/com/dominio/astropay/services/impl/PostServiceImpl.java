@@ -5,6 +5,8 @@ import com.dominio.astropay.repositories.PostRepository;
 import com.dominio.astropay.api.ApiConsumer;
 import com.dominio.astropay.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -34,6 +36,12 @@ public class PostServiceImpl implements PostService {
   @Override
   public List<Post> getPostsWithWordInTitle(String word) {
     return postRepository.findAllByTitleContaining(word);
+  }
+
+  @Override
+  public List<Post> getPaginatedPosts(int pageNumber, int pageSize) {
+    Page<Post> pages = postRepository.findAll(PageRequest.of(pageNumber, pageSize));
+    return pages.getContent();
   }
 
 }
