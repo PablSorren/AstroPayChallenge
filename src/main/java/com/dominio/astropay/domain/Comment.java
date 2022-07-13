@@ -6,17 +6,18 @@ import javax.persistence.*;
 @Table(name = "Comments")
 public class Comment {
 
+  private Long postId;
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id_comment")
   private Long id;
 
+  private String email;
+  private String name;
+
   @Column(name="body", length = 1000)
   private String body;
-
-  private Long postId;
-  private String name;
-  private String email;
 
   public Comment() {
   }

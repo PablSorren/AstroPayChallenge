@@ -1,4 +1,4 @@
-package com.dominio.astropay.services;
+package com.dominio.astropay.api;
 
 import com.dominio.astropay.domain.Comment;
 import com.dominio.astropay.domain.Post;

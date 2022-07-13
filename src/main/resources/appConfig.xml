@@ -1,0 +1,4 @@
+<beans>
+    <bean name="postService" class="com.dominio.astropay.services.impl.PostServiceImpl"/>
+    <bean name="commentService" class="com.dominio.astropay.services.impl.CommentServiceImpl"/>
+</beans>

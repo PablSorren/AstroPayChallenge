@@ -11,11 +11,13 @@ public class Post {
   @Column(name = "id_post")
   private Long id;
 
+  private Long userId;
+
+  private String title;
+
   @Column(name="body", length = 1000)
   private String body;
 
-  private Long userId;
-  private String title;
 
   public Post() {
   }
@@ -50,5 +52,16 @@ public class Post {
 
   public void setBody(String body) {
     this.body = body;
+  }
+
+  @Override
+  public String toString() {
+    return String.format(
+        "\n\n" +
+        "USERID : %d \n"+
+        "id : %d \n"+
+        "title : %s \n"+
+        "body : %s \n"+
+        "\n\n", this.getUserId(), this.getId(), this.getTitle(), this.getBody());
   }
 }

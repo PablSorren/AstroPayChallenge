@@ -2,7 +2,7 @@ package com.dominio.astropay;
 
 import com.dominio.astropay.domain.Comment;
 import com.dominio.astropay.domain.Post;
-import com.dominio.astropay.services.ApiConsumer;
+import com.dominio.astropay.api.ApiConsumer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
