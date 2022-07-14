@@ -1,6 +1,7 @@
 package com.dominio.astropay.services.impl;
 
 import com.dominio.astropay.domain.Post;
+import com.dominio.astropay.exception.NoSeEncontroElPostException;
 import com.dominio.astropay.repositories.PostRepository;
 import com.dominio.astropay.api.ApiConsumer;
 import com.dominio.astropay.services.PostService;
@@ -9,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -17,10 +19,9 @@ public class PostServiceImpl implements PostService {
   private PostRepository postRepository;
 
   @Override
-  public void persistPosts() {
-    ApiConsumer apiConsumer = new ApiConsumer();
+  public List<Post> persistPosts(ApiConsumer apiConsumer) {
     List<Post> posts = apiConsumer.getBlogPosts();
-    postRepository.saveAll(posts);
+   return postRepository.saveAll(posts);
   }
 
   @Override
@@ -30,7 +31,12 @@ public class PostServiceImpl implements PostService {
 
   @Override
   public Post getPostById(Long id) {
-    return postRepository.findById(id).get();
+    Optional<Post> post = postRepository.findById(id);
+    if(post.isPresent()) {
+      return post.get();
+    } else {
+      throw new NoSeEncontroElPostException(id);
+    }
   }
 
   @Override

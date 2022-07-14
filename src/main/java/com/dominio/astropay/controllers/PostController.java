@@ -14,14 +14,9 @@ public class PostController {
   private PostService postService;
 
   @GetMapping(value="/{postId}")
-  public Post getUserById(@PathVariable("postId") Long id) {
+  public Post getPostById(@PathVariable("postId") Long id) {
     return postService.getPostById(id);
   }
-
-//  @GetMapping(value="/title")
-//  public List<Post> defaultTitleAnswer() {
-//    return this.getPosts();
-//  }
 
   @GetMapping(value="/title", params = "word")
   public List<Post> getPostsWithWordInTitle(@RequestParam String word) {

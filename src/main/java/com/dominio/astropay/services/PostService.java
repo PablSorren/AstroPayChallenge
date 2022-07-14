@@ -1,13 +1,13 @@
 package com.dominio.astropay.services;
 
+import com.dominio.astropay.api.ApiConsumer;
 import com.dominio.astropay.domain.Post;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
 public interface PostService {
 
-  void persistPosts();
+  List<Post> persistPosts(ApiConsumer apiConsumer);
 
   List<Post> getPosts();
 

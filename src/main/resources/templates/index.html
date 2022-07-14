@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Bienvenidos!</h1>
+
+<ol>
+    <li><h2>'/posts?pageNumber=X&pageSize=Z'   para ver los posts de forma paginada (el pageNumber inicial = 0)</h2></li>
+    <a href="http://localhost:8080/posts?pageNumber=0&pageSize=3">ej.: http://localhost:8080/posts?pageNumber=0&pageSize=3</a>
+
+    <li><h2>'/posts/id_Post' para ver un post con el ID especificado.</h2></li>
+    <a href="http://localhost:8080/posts/100">ej.: http://localhost:8080/posts/100</a>
+
+    <li><h2>'/comments/post id' para ver todos los comentarios asociados al Post con el ID especificado.</h2></li>
+    <a href="http://localhost:8080/comments/9">ej.: http://localhost:8080/comments/9</a>
+
+    <li><h2>'/posts/title?word=palabra'  para filtrar los posts cuyo titulo contengan la 'palabra' buscada </h2></li>
+    <a href="http://localhost:8080/posts/title?word=iusto">ej.: http://localhost:8080/posts/title?word=iusto</a>
+
+
+    <li><h2><a href="http://localhost:8080/posts">'/posts' para ver todos los posts</a></h2></li>
+
+    <li><h2><a href="http://localhost:8080/comments">'/comments' para ver todos los comentarios.</a></h2></li>
+
+</ol>
+
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.dominio.astropay;
 
+import com.dominio.astropay.api.ApiConsumer;
 import com.dominio.astropay.domain.Comment;
 import com.dominio.astropay.repositories.CommentRepository;
 import com.dominio.astropay.services.CommentService;
@@ -26,8 +27,9 @@ public class AstroPayApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String...args) {
-		postService.persistPosts();
-		commentService.persistComments();
+
+		postService.persistPosts(new ApiConsumer());
+		commentService.persistComments(new ApiConsumer());
 	}
 
 }

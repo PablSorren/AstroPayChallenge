@@ -14,12 +14,10 @@ public class CommentServiceImpl implements CommentService {
   @Autowired
   private CommentRepository commentRepository;
 
-
   @Override
-  public void persistComments() {
-    ApiConsumer apiConsumer = new ApiConsumer();
+  public Iterable<Comment> persistComments(ApiConsumer apiConsumer) {
     List<Comment> comments= apiConsumer.getBlogComments();
-    commentRepository.saveAll(comments);
+    return commentRepository.saveAll(comments);
   }
 
   @Override
