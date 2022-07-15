@@ -50,4 +50,9 @@ public class PostServiceImpl implements PostService {
     return pages.getContent();
   }
 
+  @Override
+  public Post createNewPost(Post post) {
+    return postRepository.save(post);
+  }
+
 }

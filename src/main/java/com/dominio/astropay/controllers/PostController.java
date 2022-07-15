@@ -13,6 +13,11 @@ public class PostController {
   @Autowired
   private PostService postService;
 
+  @PostMapping(value = "")
+  public Post createNewPost(@RequestBody Post post){
+      return postService.createNewPost(post);
+  }
+
   @GetMapping(value="/{postId}")
   public Post getPostById(@PathVariable("postId") Long id) {
     return postService.getPostById(id);

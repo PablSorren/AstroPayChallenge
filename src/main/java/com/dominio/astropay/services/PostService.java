@@ -16,4 +16,6 @@ public interface PostService {
   List<Post> getPostsWithWordInTitle(String word);
 
   List<Post> getPaginatedPosts(int pageNumber, int pageSize);
+
+  Post createNewPost(Post post);
 }
